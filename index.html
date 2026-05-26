@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продвинутый калькулятор АБС</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Конструктор рецептов АБС</h1>
+    <p class="subtitle">Расчет на 1 тонну готовой смеси с ручным вводом долей</p>
+
+    <div id="warning-msg" class="warning"></div>
+
+    <div class="material-row">
+        <div class="material-header">
+            <span>Щебень</span>
+            <span id="weight-scheben" class="weight-label">0 кг</span>
+        </div>
+        <div class="inputs-grid">
+            <div class="input-group">
+                <label>Доля (%)</label>
+                <input type="number" id="perc-scheben" value="40" min="0" step="1">
+            </div>
+            <div class="input-group">
+                <label>Цена (тг/т)</label>
+                <input type="number" id="price-scheben" value="3000" min="0" step="100">
+            </div>
+        </div>
+        <div class="cost-breakdown" id="cost-scheben">0 ₸</div>
+    </div>
+
+    <div class="material-row">
+        <div class="material-header">
+            <span>Отсев</span>
+            <span id="weight-otsev" class="weight-label">0 кг</span>
+        </div>
+        <div class="inputs-grid">
+            <div class="input-group">
+                <label>Доля (%)</label>
+                <input type="number" id="perc-otsev" value="35" min="0" step="1">
+            </div>
+            <div class="input-group">
+                <label>Цена (тг/т)</label>
+                <input type="number" id="price-otsev" value="2000" min="0" step="100">
+            </div>
+        </div>
+        <div class="cost-breakdown" id="cost-otsev">0 ₸</div>
+    </div>
+
+    <div class="material-row">
+        <div class="material-header">
+            <span>ПГС</span>
+            <span id="weight-pgs" class="weight-label">0 кг</span>
+        </div>
+        <div class="inputs-grid">
+            <div class="input-group">
+                <label>Доля (%)</label>
+                <input type="number" id="perc-pgs" value="20" min="0" step="1">
+            </div>
+            <div class="input-group">
+                <label>Цена (тг/т)</label>
+                <input type="number" id="price-pgs" value="2500" min="0" step="100">
+            </div>
+        </div>
+        <div class="cost-breakdown" id="cost-pgs">0 ₸</div>
+    </div>
+
+    <div class="material-row">
+        <div class="material-header">
+            <span>Мин. порошок</span>
+            <span id="weight-minpor" class="weight-label">0 кг</span>
+        </div>
+        <div class="inputs-grid">
+            <div class="input-group">
+                <label>Доля (%)</label>
+                <input type="number" id="perc-minpor" value="5" min="0" step="0.1">
+            </div>
+            <div class="input-group">
+                <label>Цена (тг/т)</label>
+                <input type="number" id="price-minpor" value="15000" min="0" step="100">
+            </div>
+        </div>
+        <div class="cost-breakdown" id="cost-minpor">0 ₸</div>
+    </div>
+
+    <div class="material-row bitum-row">
+        <div class="material-header">
+            <span>Битум (сверх 100%)</span>
+            <span id="weight-bitum" class="weight-label bitum-label">0 кг</span>
+        </div>
+        <div class="inputs-grid">
+            <div class="input-group">
+                <label>Доля (%)</label>
+                <input type="number" id="perc-bitum" value="5.7" min="0" step="0.1">
+            </div>
+            <div class="input-group">
+                <label>Цена (тг/т)</label>
+                <input type="number" id="price-bitum" value="180000" min="0" step="1000">
+            </div>
+        </div>
+        <div class="cost-breakdown" id="cost-bitum">0 ₸</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="material-row prod-row">
+        <div class="inputs-grid" style="grid-template-columns: 1fr;">
+            <div class="input-group">
+                <label class="prod-label">Затраты завода (тг/т)</label>
+                <p class="prod-sublabel">Топливо, ЗП, Амортизация АБЗ</p>
+                <input type="number" id="price-production" value="4500" min="0" step="100">
+            </div>
+        </div>
+    </div>
+
+    <div class="result-row">
+        <span>Стоимость материалов:</span>
+        <span id="total-materials" style="font-weight: 600;">0 ₸</span>
+    </div>
+    
+    <div class="result-row result-total">
+        <span>Себестоимость 1 тонны:</span>
+        <span id="total-final">0 ₸</span>
+    </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
